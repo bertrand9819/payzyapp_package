@@ -27,3 +27,10 @@
 .dart_tool/
 .packages
 build/
+
+.history/
+example/.flutter-plugins
+example/.flutter-plugins-dependencies
+example/pubspec.lock
+example/linux
+.vscode/
