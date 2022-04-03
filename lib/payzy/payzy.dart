@@ -26,7 +26,7 @@ class Payzy {
   static Future<TransactionResponse> createTransaction({
     required String description,
     required String pays,
-    required String mobileMoney,
+    required PayzyProvider? provider,
     required String commandeId,
     required String code,
     required String tel,
@@ -47,7 +47,7 @@ class Payzy {
         body: NewTransactionRequest(
           description: description,
           pays: pays,
-          mobileMoney: mobileMoney,
+          provider: provider,
           commandeId: commandeId,
           code: code,
           tel: tel,

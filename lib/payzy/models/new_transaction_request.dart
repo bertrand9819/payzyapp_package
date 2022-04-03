@@ -5,7 +5,7 @@ class NewTransactionRequest {
   NewTransactionRequest({
     required this.description,
     required this.pays,
-    required this.mobileMoney,
+    required this.provider,
     required this.commandeId,
     required this.code,
     required this.tel,
@@ -16,7 +16,7 @@ class NewTransactionRequest {
 
   final String pays;
 
-  final String mobileMoney;
+  final PayzyProvider? provider;
 
   final String commandeId;
 
@@ -29,7 +29,7 @@ class NewTransactionRequest {
   Map<String, dynamic> toJson() => {
         'description': description,
         'pays': pays,
-        'mobile_money': mobileMoney,
+        'mobile_money': mobile__money(provider),
         'commande_id': commandeId,
         'code': code,
         'tel': tel,
@@ -40,7 +40,7 @@ class NewTransactionRequest {
     return Payzy.createTransaction(
       description: description,
       pays: pays,
-      mobileMoney: mobileMoney,
+      provider: provider,
       commandeId: commandeId,
       code: code,
       tel: tel,

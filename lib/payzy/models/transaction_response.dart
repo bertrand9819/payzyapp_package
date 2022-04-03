@@ -99,3 +99,20 @@ enum TransactionResponseStatus {
   ///Service web Payzy indisponible
   internalError
 }
+
+enum PayzyProvider {
+  FLOOZ,
+  TMONEY,
+}
+
+String? mobile__money(PayzyProvider? provider) {
+switch (provider) {
+case PayzyProvider.FLOOZ:
+return "FLOOZ";
+case PayzyProvider.TMONEY:
+return "TMONEY";
+
+default:
+return null;
+}
+}
