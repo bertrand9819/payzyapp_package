@@ -29,7 +29,7 @@ class NewTransactionRequest {
   Map<String, dynamic> toJson() => {
         'description': description,
         'pays': pays,
-        'mobile_money': mobile__money(provider),
+        'mobile_money': mobileMoneyProvider(provider),
         'commande_id': commandeId,
         'code': code,
         'tel': tel,
