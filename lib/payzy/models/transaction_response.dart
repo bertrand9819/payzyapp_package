@@ -101,18 +101,18 @@ enum TransactionResponseStatus {
 }
 
 enum PayzyProvider {
-  FLOOZ,
-  TMONEY,
+  flooz,
+  tmoney,
 }
 
-String? mobile__money(PayzyProvider? provider) {
-switch (provider) {
-case PayzyProvider.FLOOZ:
-return "FLOOZ";
-case PayzyProvider.TMONEY:
-return "TMONEY";
+String? mobileMoneyProvider(PayzyProvider? provider) {
+  switch (provider) {
+    case PayzyProvider.flooz:
+      return "FLOOZ";
+    case PayzyProvider.tmoney:
+      return "TMONEY";
 
-default:
-return null;
-}
+    default:
+      return null;
+  }
 }
