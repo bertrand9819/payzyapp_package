@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    Payzy.init(apiKey: "");
+    Payzy.init(apiKey: "KWE6Y1VMN14F04K0X6PH9QJMWR13");
     super.initState();
   }
 
@@ -176,28 +176,39 @@ class _MyHomePageState extends State<MyHomePage> {
                 initializing1
                     ? const CircularLoader()
                     : RaisedButton(
-                        child: const Text('Pay Method 1'),
+                        child: const Text('Pay Method'),
                         onPressed: () {
                           if (_key.currentState?.validate() ?? false) {
                             responseMethod1 = null;
                             _transaction1 = null;
                             initializing1 = true;
                             Payzy.createTransaction(
-                              code: "",
-                              commandeId: "",
-                              pays: "",
+                              code: DateTime.now()
+                                  .millisecondsSinceEpoch
+                                  .toString(),
+                              commandeId: DateTime.now()
+                                  .millisecondsSinceEpoch
+                                  .toString(),
+                              pays: "TOGO",
                               tel: phoneNumber,
                               provider: provider,
                               amount: 1,
                               description:
                                   "Test Payment Method 1 : flutter_paygateglobal",
                             ).then((response) {
-                              responseMethod1 = response;
+                              if (response.status ==
+                                  TransactionResponseStatus.success) {
+                                responseMethod1 = response;
+
+                                toast(
+                                  context,
+                                  "You will receive a dial dialog confirmation on your mobile phone.",
+                                );
+                              } else {
+                                responseMethod1 = null;
+                                toast(context, response.message);
+                              }
                               initializing1 = false;
-                              toast(
-                                context,
-                                "You will receive a dial dialog confirmation on your mobile phone.",
-                              );
                             });
                           }
                         },

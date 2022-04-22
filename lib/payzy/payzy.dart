@@ -40,8 +40,7 @@ class Payzy {
         ),
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
-          "Authorization": "Bearer $PayzyConfig.apiKey",
-          "X-PAYZY-TOKEN": _token,
+          "Authorization": "Bearer ${PayzyConfig.apiKey}",
           "Accept": "application/json"
         },
         body: NewTransactionRequest(
@@ -88,8 +87,7 @@ class Payzy {
         ),
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
-          "Authorization": "Bearer $PayzyConfig.apiKey",
-          "X-PAYZY-TOKEN": _token,
+          "Authorization": "Bearer ${PayzyConfig.apiKey}",
           "Accept": "application/json"
         },
         body: TransactionStatusRequest(

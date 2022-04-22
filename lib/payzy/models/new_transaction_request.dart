@@ -33,7 +33,7 @@ class NewTransactionRequest {
         'commande_id': commandeId,
         'code': code,
         'tel': tel,
-        'amount': amount,
+        'amount': amount.toString(),
       };
 
   Future<TransactionResponse> create() {
